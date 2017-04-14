@@ -21,7 +21,7 @@
         "source": "https://github.com/ericsalerno/camelize/releases"
     },
     "require":{
-        "php": ">=7.0"
+        "php": ">=5.4"
     },
     "require-dev":{
         "phpunit/phpunit": "5.7"
