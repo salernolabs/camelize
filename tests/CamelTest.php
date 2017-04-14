@@ -27,7 +27,7 @@ class CamelTest extends \PHPUnit\Framework\TestCase
      */
     public function dataProviderForCamelCasing()
     {
-        $output = [
+        return [
             ['some_text_WITH_hungarian', 'SomeTextWithHungarian'],
             ['more random_Strange notation', 'MoreRandomStrangeNotation'],
             ['  asdf', 'Asdf']

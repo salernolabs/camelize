@@ -27,7 +27,7 @@ class UncamelTest extends \PHPUnit\Framework\TestCase
      */
     public function dataProviderForCamelCasing()
     {
-        $output = [
+        return [
             ['SomeTextWithHungarian', 'some_text_with_hungarian'],
             ['more random_Strange notation', 'more_random_strange_notation'],
             ['  asdf', 'asdf']
