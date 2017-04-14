@@ -30,7 +30,8 @@ class CamelTest extends \PHPUnit\Framework\TestCase
         return [
             ['some_text_WITH_hungarian', 'SomeTextWithHungarian'],
             ['more random_Strange notation', 'MoreRandomStrangeNotation'],
-            ['  asdf', 'Asdf']
+            ['  asdf', 'Asdf'],
+            ['óh_no_yoû_didnt', 'ÓhNoYoûDidnt']
         ];
     }
 }

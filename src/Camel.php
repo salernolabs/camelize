@@ -48,7 +48,7 @@ class Camel
 
         for ($i = 0; $i < mb_strlen($input); ++$i)
         {
-            $character = $input[$i];
+            $character = mb_substr($input, $i, 1);
 
             if ($character == '_' || $character == ' ')
             {
@@ -59,11 +59,11 @@ class Camel
                 if ($capitalizeNext)
                 {
                     $capitalizeNext = false;
-                    $output .= strtoupper($character);
+                    $output .= mb_strtoupper($character);
                 }
                 else
                 {
-                    $output .= strtolower($character);
+                    $output .= mb_strtolower($character);
                 }
             }
         }
