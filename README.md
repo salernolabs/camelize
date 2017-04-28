@@ -8,7 +8,7 @@ Not sure just how useful this is as a library but I've used it for some code mod
 
 First include the library with composer.
 
-    composer require ericsalerno/camelize
+    composer require salernolabs/camelize
 
 ### Camel Casing
 

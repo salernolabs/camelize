@@ -1,5 +1,5 @@
 {
-    "name": "ericsalerno/camelize",
+    "name": "salernolabs/camelize",
     "description": "Utility for camel and uncamel casing words or phrases.",
     "keywords": [
         "PHP",
@@ -17,8 +17,8 @@
     ],
     "support": {
         "email": "salernolabs@gmail.com",
-        "issues": "https://github.com/ericsalerno/camelize/issues",
-        "source": "https://github.com/ericsalerno/camelize/releases"
+        "issues": "https://github.com/salernolabs/camelize/issues",
+        "source": "https://github.com/salernolabs/camelize/releases"
     },
     "require":{
         "php": ">=5.4"
