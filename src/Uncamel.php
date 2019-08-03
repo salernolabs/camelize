@@ -73,7 +73,7 @@ class Uncamel
             if ($isCapital)
             {
                 // We don't want to add the replacement character if its the first one in the list so we don't prepend
-                if ($i != 0)
+                if ($i !== 0)
                 {
                     $output .= $this->replacementCharacter;
                 }
@@ -89,7 +89,7 @@ class Uncamel
             }
             else
             {
-                if ($i == 0 && $this->shouldCapitalizeFirstLetter)
+                if ($i === 0 && $this->shouldCapitalizeFirstLetter)
                 {
                     $output .= mb_strtoupper($character);
                 }

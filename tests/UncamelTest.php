@@ -19,7 +19,7 @@ class UncamelTest extends TestCase
      * @dataProvider dataProviderForCamelCasing
      * @throws \Exception But shouldn't here
      */
-    public function testUncamelCasing($input, $expectedOutput)
+    public function testUncamelCasing(string $input, string $expectedOutput)
     {
         $uncamelCaser = new Uncamel();
 
@@ -42,12 +42,12 @@ class UncamelTest extends TestCase
     /**
      * Test uncamel casing with caps
      * @covers \SalernoLabs\Camelize\Uncamel::setShouldCapitalizeFirstCharacter
-     * @param $input
-     * @param $expectedOutput
+     * @param string $input The expected input
+     * @param string $expectedOutput The expected output
      * @dataProvider dataProviderForCasedUncamelCasing
      * @throws \Exception But shouldn't here
      */
-    public function testUncamelCasingWithCaps($input, $expectedOutput)
+    public function testUncamelCasingWithCaps(string $input, string $expectedOutput)
     {
         $uncamelCaser = new Uncamel();
         $uncamelCaser->setShouldCapitalizeFirstCharacter(true);
@@ -65,7 +65,8 @@ class UncamelTest extends TestCase
         return [
             ['óhNoYoûDidnt', 'Óh_No_Yoû_Didnt'],
             ['Onebigword', 'Onebigword'],
-            ['ThisIsCamelCaseSensitive', 'This_Is_Camel_Case_Sensitive']
+            ['ThisIsCamelCaseSensitive', 'This_Is_Camel_Case_Sensitive'],
+            ['helloWorld', 'Hello_World'],
         ];
     }
 
@@ -80,7 +81,7 @@ class UncamelTest extends TestCase
             ->setReplacementCharacter('X')
             ->setShouldCapitalizeFirstCharacter(true);
 
-        $this->assertSame('HelloXworld', $uncamelCaser->uncamelize('HelloWorld'));
+        $this->assertSame('HelloXWorld', $uncamelCaser->uncamelize('helloWorld'));
     }
 
     /**
