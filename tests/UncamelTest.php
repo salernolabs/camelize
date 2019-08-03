@@ -1,4 +1,9 @@
 <?php
+namespace SalernoLabs\Tests\Camelize;
+
+use PHPUnit\Framework\TestCase;
+use SalernoLabs\Camelize\Uncamel;
+
 /**
  * Tests for Uncamelize
  *
@@ -6,19 +11,17 @@
  * @subpackage Tests
  * @author Eric Salerno
  */
-namespace SalernoLabs\Tests\Camelize;
-
-class UncamelTest extends \PHPUnit\Framework\TestCase
+class UncamelTest extends TestCase
 {
     /**
-     * @param $input
-     * @param $expectedOutput
-     * @covers \SalernoLabs\Camelize\Uncamel::uncamelize
+     * @param string $input The input string
+     * @param string $expectedOutput The expected output string
      * @dataProvider dataProviderForCamelCasing
+     * @throws \Exception But shouldn't here
      */
     public function testUncamelCasing($input, $expectedOutput)
     {
-        $uncamelCaser = new \SalernoLabs\Camelize\Uncamel();
+        $uncamelCaser = new Uncamel();
 
         $this->assertEquals($expectedOutput, $uncamelCaser->uncamelize($input));
     }
@@ -42,10 +45,11 @@ class UncamelTest extends \PHPUnit\Framework\TestCase
      * @param $input
      * @param $expectedOutput
      * @dataProvider dataProviderForCasedUncamelCasing
+     * @throws \Exception But shouldn't here
      */
     public function testUncamelCasingWithCaps($input, $expectedOutput)
     {
-        $uncamelCaser = new \SalernoLabs\Camelize\Uncamel();
+        $uncamelCaser = new Uncamel();
         $uncamelCaser->setShouldCapitalizeFirstCharacter(true);
 
         $this->assertEquals($expectedOutput, $uncamelCaser->uncamelize($input));
@@ -63,5 +67,30 @@ class UncamelTest extends \PHPUnit\Framework\TestCase
             ['Onebigword', 'Onebigword'],
             ['ThisIsCamelCaseSensitive', 'This_Is_Camel_Case_Sensitive']
         ];
+    }
+
+    /**
+     * Test set replacement character
+     * @throws \Exception But it won't
+     */
+    public function testSetReplacementCharacter()
+    {
+        $uncamelCaser = new Uncamel();
+        $uncamelCaser
+            ->setReplacementCharacter('X')
+            ->setShouldCapitalizeFirstCharacter(true);
+
+        $this->assertSame('HelloXworld', $uncamelCaser->uncamelize('HelloWorld'));
+    }
+
+    /**
+     * @throws \Exception Thats why we're here
+     */
+    public function testInvalidInput()
+    {
+        $this->expectException(\Exception::class);
+        $uncamelCaser = new Uncamel();
+
+        $uncamelCaser->uncamelize('');
     }
 }

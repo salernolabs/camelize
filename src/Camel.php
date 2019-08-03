@@ -1,4 +1,6 @@
 <?php
+namespace SalernoLabs\Camelize;
+
 /**
  * Camel Case Class
  *
@@ -6,8 +8,6 @@
  * @subpackage Camelize
  * @author Eric Salerno
  */
-namespace SalernoLabs\Camelize;
-
 class Camel
 {
     /**
@@ -17,11 +17,10 @@ class Camel
 
     /**
      * Configure the camel caser to capitalize the first letter
-     *
-     * @param $shouldCapitalize
+     * @param bool $shouldCapitalize Should we capitalize or not?
      * @return $this
      */
-    public function setCapitalizeFirstLetter($shouldCapitalize)
+    public function setCapitalizeFirstLetter(bool $shouldCapitalize): self
     {
         $this->shouldCapitalizeFirstLetter = $shouldCapitalize;
 
@@ -30,11 +29,11 @@ class Camel
 
     /**
      * Camel Case a String
-     *
-     * @param $input
+     * @param string $input The input string to camelize
      * @return string
+     * @throws \Exception If the input is empty
      */
-    public function camelize($input)
+    public function camelize(string $input): string
     {
         $input = trim($input);
 
@@ -67,7 +66,6 @@ class Camel
                 }
             }
         }
-
         return $output;
     }
 }

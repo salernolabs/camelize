@@ -1,4 +1,8 @@
-# camelize
+# salernolabs/camelize
+
+[![Latest Stable Version](https://poser.pugx.org/salernolabs/camelize/v/stable)](https://packagist.org/packages/salernolabs/camelize)
+[![License](https://poser.pugx.org/salernolabs/camelize/license)](https://packagist.org/packages/salernolabs/camelize)
+[![Build Status](https://travis-ci.com/salernolabs/camelize.svg?branch=master)](https://travis-ci.org/salernolabs/camelize)
 
 Simple library to perform camel and uncamel casing of words or phrases. The library is designed to by multibyte character safe. PHPUnit tests are included.
 
@@ -37,7 +41,7 @@ This should output "SomeTextInSomeNotation". You can also do:
 
     echo $output;
 
-This should output "some_text_in_camel_case". You can also do:
+This should output "some_text_in_camel_case" (snake case). You can also do:
 
     //Defaults to false
     $uncamelizer->setShouldCapitalizeFirstCharacter(true);

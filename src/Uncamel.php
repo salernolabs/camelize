@@ -1,4 +1,6 @@
 <?php
+namespace SalernoLabs\Camelize;
+
 /**
  * Uncamel case a string
  *
@@ -6,14 +8,15 @@
  * @subpackage Camelize
  * @author Eric Salerno
  */
-namespace SalernoLabs\Camelize;
-
 class Uncamel
 {
+    /** @var string  */
+    private const DEFAULT_REPLACEMENT_CHARACTER = '_';
+
     /**
      * @var string
      */
-    private $replacementCharacter = '_';
+    private $replacementCharacter = self::DEFAULT_REPLACEMENT_CHARACTER;
 
     /**
      * @var bool
@@ -22,11 +25,10 @@ class Uncamel
 
     /**
      * Set replacement character
-     *
-     * @param $character
+     * @param string $character The character to insert
      * @return $this
      */
-    public function setReplacementCharacter($character)
+    public function setReplacementCharacter(string $character): self
     {
         $this->replacementCharacter = $character;
 
@@ -35,11 +37,10 @@ class Uncamel
 
     /**
      * Set should capitalize first character
-     *
-     * @param $capitalizeFirstCharacter
+     * @param bool $capitalizeFirstCharacter Should we capitalize the first character or not
      * @return $this
      */
-    public function setShouldCapitalizeFirstCharacter($capitalizeFirstCharacter)
+    public function setShouldCapitalizeFirstCharacter(bool $capitalizeFirstCharacter): self
     {
         $this->shouldCapitalizeFirstLetter = $capitalizeFirstCharacter;
 
@@ -48,11 +49,11 @@ class Uncamel
 
     /**
      * Uncamelize a string
-     *
-     * @param $input
+     * @param string $input The input string to uncamelize
      * @return string
+     * @throws \Exception If input is empty
      */
-    public function uncamelize($input)
+    public function uncamelize(string $input): string
     {
         $input = trim($input);
 
@@ -71,7 +72,7 @@ class Uncamel
 
             if ($isCapital)
             {
-                //We don't want to add the replacement character if its the first one in the list so we don't prepend
+                // We don't want to add the replacement character if its the first one in the list so we don't prepend
                 if ($i != 0)
                 {
                     $output .= $this->replacementCharacter;
@@ -98,7 +99,6 @@ class Uncamel
                 }
             }
         }
-
         return $output;
     }
 }
